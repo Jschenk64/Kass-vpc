@@ -38,3 +38,39 @@ output "security_group_id" {
   description = "The ID of the security group"
   value       = aws_security_group.cra_3_sg.id
 }
+
+output "instance_id" {
+  description = "The ID of the EC2 instance"
+  value       = [
+    aws_instance.cra-W155.id,
+    aws_instance.cra-W156.id,
+    aws_instance.cra-A157.id,
+    aws_instance.cra-A158.id
+  ]
+}
+
+output "instance_public_ip" {
+  description = "The public IP address of the EC2 instance"
+  value       = [
+    aws_instance.cra-W155.public_ip,
+    aws_instance.cra-W156.public_ip
+  ]
+}
+
+output "instance_private_ip" {
+  description = "The private IP address of the EC2 instance"
+  value       = [
+    aws_instance.cra-A157.private_ip,
+    aws_instance.cra-A158.private_ip
+  ]
+}
+
+output "instance_availability_zone" {
+  description = "The Availability Zone of the EC2 instance"
+  value       = [
+    aws_instance.cra-W155.availability_zone,
+    aws_instance.cra-W156.availability_zone,
+    aws_instance.cra-A157.availability_zone,
+    aws_instance.cra-A158.availability_zone
+  ]
+}
