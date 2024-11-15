@@ -13,9 +13,9 @@ resource "aws_vpc" "cra_3_vpc" {
 # Public Subnets (aws_subnet.cra_3_pub1 and aws_subnet.cra_3_pub2):
 
 resource "aws_subnet" "cra_3_pub1" {
-  vpc_id               = aws_vpc.cra_3_vpc.id
-  cidr_block           = var.public_subnet_cidrs[0]
-  availability_zone    = var.availability_zones[0]
+  vpc_id                  = aws_vpc.cra_3_vpc.id
+  cidr_block              = var.public_subnet_cidrs[0]
+  availability_zone       = var.availability_zones[0]
   map_public_ip_on_launch = true
 
   tags = {
@@ -24,9 +24,9 @@ resource "aws_subnet" "cra_3_pub1" {
 }
 
 resource "aws_subnet" "cra_3_pub2" {
-  vpc_id               = aws_vpc.cra_3_vpc.id
-  cidr_block           = var.public_subnet_cidrs[1]
-  availability_zone    = var.availability_zones[1]
+  vpc_id                  = aws_vpc.cra_3_vpc.id
+  cidr_block              = var.public_subnet_cidrs[1]
+  availability_zone       = var.availability_zones[1]
   map_public_ip_on_launch = true
 
   tags = {
@@ -40,7 +40,7 @@ resource "aws_subnet" "cra_3_priv1" {
   vpc_id            = aws_vpc.cra_3_vpc.id
   cidr_block        = var.private_subnet_cidrs[0]
   availability_zone = var.availability_zones[0]
-  
+
   tags = {
     Name = var.tags["private_sub1"]
   }
@@ -50,7 +50,7 @@ resource "aws_subnet" "cra_3_priv2" {
   vpc_id            = aws_vpc.cra_3_vpc.id
   cidr_block        = var.private_subnet_cidrs[1]
   availability_zone = var.availability_zones[1]
-  
+
   tags = {
     Name = var.tags["private_sub2"]
   }
@@ -86,7 +86,7 @@ resource "aws_route_table" "cra_3_pub_rt" {
 # Allocates an Elastic IP, which will be used by the NAT gateway.
 
 resource "aws_eip" "cra_3_eip" {
-  
+
   tags = {
     Name = var.tags["eip"]
   }
@@ -109,7 +109,7 @@ resource "aws_route_table" "cra_3_priv_rt" {
   vpc_id = aws_vpc.cra_3_vpc.id
 
   route {
-    cidr_block = "0.0.0.0/0"
+    cidr_block     = "0.0.0.0/0"
     nat_gateway_id = aws_nat_gateway.cra_3_nat_gw.id
   }
 
