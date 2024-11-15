@@ -89,26 +89,31 @@ variable "key_name" {
 variable "subnet_id_W155" {
   description = "Subnet ID for CRA-W155 instance"
   type        = string
+  default = "aws_subnet.cra_3_pub1.id"
 }
 
 variable "subnet_id_W156" {
   description = "Subnet ID for CRA-W156 instance"
   type        = string
+  default = "aws_subnet.cra_3_pub2.id"
 }
 
 variable "subnet_id_A157" {
   description = "Subnet ID for CRA-A157 instance"
   type        = string
+  default = "aws_subnet.cra_3_priv1.id"
 }
 
 variable "subnet_id_A158" {
   description = "Subnet ID for CRA-A158 instance"
   type        = string
+  default = "aws_subnet.cra_3_priv2.id"
 }
 
 variable "security_group_id" {
   description = "Security group ID for All instances"
   type        = string
+  default = "aws_security_group.cra_3_sg.id"
 }
 
 
