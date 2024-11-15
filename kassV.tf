@@ -132,6 +132,8 @@ variable "tags" {
     sg                = "CRA-3-SG"
     eip               = "CRA-3_EIP"
     nat_gw            = "Cra-3_NAT_GW"
+    alb               = "CRA-3-ALB"
+    tg                = "CRA-3-TG"
     subnet_id_W155    = "aws_subnet.cra_3_pub1.id"
     subnet_id_A156    = "aws_subnet.cra_3_pub2.id"
     subnet_id_W157    = "aws_subnet.cra_3_priv1.id"
